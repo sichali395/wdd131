@@ -20,87 +20,166 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
+/* Header Styles - DARK */
 header {
     grid-area: header;
-    background-color: #e0e0e0;
-    padding: 20px;
-    border-bottom: 2px solid #ccc;
+    background-color: #2c3e50; /* Dark blue-gray */
+    padding: 20px 20px 0 20px;
+    border-bottom: 2px solid #34495e;
 }
 
 header h1 {
     font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
+    margin-bottom: 0;
+    color: white; /* White text on dark background */
     text-align: center;
     font-weight: bold;
+    padding-bottom: 15px;
 }
 
-/* Navigation Flexbox */
+/* Navigation Bar - LIGHT BLUE */
+nav {
+    background-color: #3498db; /* Light blue background for entire nav bar */
+    margin: 0 -20px;
+}
+
 nav ul {
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 40px;
-    border-top: 1px solid #999;
-    padding-top: 15px;
+    gap: 0;
+    padding: 15px 0;
 }
 
 nav a {
-    color: #333;
+    color: white; /* White text on light blue */
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 12px 30px;
     font-weight: bold;
     font-size: 16px;
+    transition: all 0.3s ease;
+    border-right: 1px solid #2980b9;
+}
+
+nav li:last-child a {
+    border-right: none;
 }
 
 nav a:hover {
-    background-color: #d0d0d0;
-    border-radius: 3px;
+    background-color: #2980b9; /* Darker blue on hover */
+    color: white;
 }
 
-/* Main Content */
+/* Main Content - Maintain original color */
 main {
     grid-area: main;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Original light gray */
     border-right: 2px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 main h2 {
-    color: #333;
-    font-size: 20px;
+    color: #2c3e50;
+    font-size: 22px;
     font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
 }
 
-/* Aside Content */
+main h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 15px 0 10px 0;
+}
+
+main p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+main ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+main li {
+    margin-bottom: 8px;
+}
+
+/* Aside Content - Maintain original color */
 aside {
     grid-area: aside;
     padding: 20px;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #f5f5f5; /* Original light gray */
 }
 
 aside h2 {
     color: #333;
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
-/* Footer */
+aside h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 15px 0 10px 0;
+}
+
+aside p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+aside ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+aside li {
+    margin-bottom: 8px;
+}
+
+/* Title Display in Aside */
+.title-display {
+    background-color: #e8f4fc;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.title-display h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.title-display p {
+    color: #3498db;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Footer - DARK */
 footer {
     grid-area: footer;
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: #2c3e50; /* Same dark as header */
+    color: white; /* White text */
     text-align: center;
     padding: 20px;
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #34495e;
     font-weight: bold;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 0;
     font-size: 16px;
 }
 
@@ -117,12 +196,25 @@ footer {
     
     nav ul {
         flex-direction: column;
-        gap: 10px;
-        align-items: center;
+        gap: 0;
+    }
+    
+    nav a {
+        border-right: none;
+        border-bottom: 1px solid #2980b9;
+        text-align: center;
+    }
+    
+    nav li:last-child a {
+        border-bottom: none;
     }
     
     main {
         border-right: none;
         border-bottom: 2px solid #ccc;
+    }
+    
+    .title-display {
+        margin: 15px 0;
     }
 }
