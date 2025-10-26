@@ -6,8 +6,8 @@
         color: #fff;
     }
     
-    /* Keep single column layout (vertical) even on larger screens */
+    /* Change to two columns on wider screens */
     main {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
