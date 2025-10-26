@@ -1,0 +1,13 @@
+/* media-query-large.css - Styles for wider screens */
+
+@media screen and (min-width: 500px) {
+    header {
+        background-color: #000;
+        color: #fff;
+    }
+    
+    /* Keep single column layout (vertical) even on larger screens */
+    main {
+        grid-template-columns: 1fr;
+    }
+}
