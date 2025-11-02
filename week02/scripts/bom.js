@@ -1,75 +1,91 @@
-// Declare variables that hold references to the input, button, and list elements
-const input = document.querySelector('#favchap');
-const button = document.querySelector('#addChapter');
-const list = document.querySelector('#chapterList');
-
-// Add click event listener to the button
-button.addEventListener('click', function() {
-    // Check if input is not blank
-    if (input.value.trim() !== '') {
-        // Create a li element
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const input = document.getElementById('favchap');
+    const addButton = document.getElementById('addButton');
+    const list = document.getElementById('list');
+    
+    // Function to create a list item
+    function createListItem(chapterText) {
+        // Create new list item
         const li = document.createElement('li');
         
-        // Create a delete button
+        // Create span for chapter text
+        const chapterSpan = document.createElement('span');
+        chapterSpan.textContent = chapterText;
+        
+        // Create delete button
         const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-btn';
         
-        // Populate the li element's textContent with the input value
-        li.textContent = input.value;
+        // Append elements to list item
+        li.appendChild(chapterSpan);
+        li.appendChild(deleteButton);
         
-        // Populate the button textContent with a ❌
-        deleteButton.textContent = '❌';
+        return li;
+    }
+    
+    // Add all Alma chapters as pre-loaded chapters
+    function addPreloadedChapters() {
+        const almaChapters = [
+            'Alma 1', 'Alma 2', 'Alma 3', 'Alma 4', 'Alma 5',
+            'Alma 6', 'Alma 7', 'Alma 8', 'Alma 9', 'Alma 10',
+            'Alma 11', 'Alma 12', 'Alma 13', 'Alma 14', 'Alma 15',
+            'Alma 16', 'Alma 17', 'Alma 18', 'Alma 19', 'Alma 20',
+            'Alma 21', 'Alma 22', 'Alma 23', 'Alma 24', 'Alma 25',
+            'Alma 26', 'Alma 27', 'Alma 28', 'Alma 29', 'Alma 30',
+            'Alma 31', 'Alma 32', 'Alma 33', 'Alma 34', 'Alma 35',
+            'Alma 36', 'Alma 37', 'Alma 38', 'Alma 39', 'Alma 40',
+            'Alma 41', 'Alma 42', 'Alma 43', 'Alma 44', 'Alma 45',
+            'Alma 46', 'Alma 47', 'Alma 48', 'Alma 49', 'Alma 50',
+            'Alma 51', 'Alma 52', 'Alma 53', 'Alma 54', 'Alma 55',
+            'Alma 56', 'Alma 57', 'Alma 58', 'Alma 59', 'Alma 60',
+            'Alma 61', 'Alma 62', 'Alma 63'
+        ];
         
-        // Set aria-label for accessibility
-        deleteButton.setAttribute('aria-label', `Remove ${input.value}`);
-        
-        // Add class for styling
-        deleteButton.classList.add('delete-btn');
-        
-        // Append the delete button to the li element
-        li.append(deleteButton);
-        
-        // Append the li element to the unordered list
-        list.append(li);
-        
-        // Add event listener to delete button
-        deleteButton.addEventListener('click', function() {
-            list.removeChild(li);
-            checkEmptyList();
+        // Add each Alma chapter to the list
+        almaChapters.forEach(chapter => {
+            const li = createListItem(chapter);
+            list.appendChild(li);
         });
-        
-        // Clear the input field
-        input.value = '';
-        
-        // Focus back to the input field
-        input.focus();
-        
-        // Remove empty message if it exists
-        const emptyMessage = document.querySelector('.empty-message');
-        if (emptyMessage) {
-            emptyMessage.remove();
+    }
+    
+    // Initialize with pre-loaded chapters
+    addPreloadedChapters();
+    
+    // Add event listener for the Add Chapter button
+    addButton.addEventListener('click', function() {
+        // Check if input is not blank
+        if (input.value.trim() !== '') {
+            // Create new list item
+            const li = createListItem(input.value.trim());
+            
+            // Append list item to the list
+            list.appendChild(li);
+            
+            // Clear input field
+            input.value = '';
         }
-    } else {
-        // If input is blank, focus back to input field
+        
+        // Focus on input field
         input.focus();
-    }
+    });
+    
+    // Add event listener for the list (event delegation for delete buttons)
+    list.addEventListener('click', function(e) {
+        if (e.target.classList.contains('delete-btn')) {
+            // Remove the parent li element
+            e.target.parentElement.remove();
+            
+            // Focus on input field
+            input.focus();
+        }
+    });
+    
+    // Allow adding chapters by pressing Enter key
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            addButton.click();
+        }
+    });
 });
-
-// Function to check if the list is empty and show a message
-function checkEmptyList() {
-    if (list.children.length === 0) {
-        const emptyMessage = document.createElement('p');
-        emptyMessage.textContent = 'No favorite chapters added yet.';
-        emptyMessage.classList.add('empty-message');
-        list.append(emptyMessage);
-    }
-}
-
-// Add event listener for Enter key in input field
-input.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        button.click();
-    }
-});
-
-// Initialize the empty list message
-checkEmptyList();
