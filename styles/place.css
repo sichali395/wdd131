@@ -108,6 +108,12 @@ main {
     margin-bottom: var(--spacing-md);
 }
 
+/* Weather SVG Styles */
+.weather-icon svg {
+    display: block;
+    margin: 0 auto;
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -154,6 +160,7 @@ footer p {
         margin-bottom: 0;
     }
     
+    /* Weather icon pseudo-element for desktop */
     .weather h2::after {
         content: " ⛅";
         font-size: 1.2rem;
