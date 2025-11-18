@@ -1,5 +1,18 @@
 /* styles/place.css */
 
+/* CSS Variables in :root selector */
+:root {
+    --primary-color: #2b7abc;
+    --secondary-color: #f9f9f9;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --border-radius: 8px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+}
+
 /* CSS Reset */
 * {
     margin: 0;
@@ -11,20 +24,35 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
 }
 
 h1, h2, h3 {
     font-family: 'Merriweather', serif;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
 }
 
 /* Header */
 header {
-    background-color: #2b7abc;
-    color: white;
-    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: var(--spacing-sm);
     text-align: center;
 }
 
@@ -32,17 +60,19 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
 }
 
 nav a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
+    color: #e0e0e0;
     text-decoration: underline;
 }
 
@@ -50,66 +80,89 @@ nav a:hover {
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: var(--spacing-md);
 }
 
 /* Hero section */
+.hero {
+    margin-bottom: var(--spacing-md);
+}
+
 .hero img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 /* Data section */
 .data {
-    background-color: white;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.data-content p {
+    margin-bottom: 0.5rem;
 }
 
 /* Weather section */
 .weather {
-    background-color: white;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.weather-content p {
+    margin-bottom: 0.5rem;
 }
 
 .weather-icon {
-    display: none; /* Hide by default - show only in mobile */
+    display: none;
+    margin-bottom: var(--spacing-sm);
 }
 
 /* Attractions section */
 .attractions {
-    background-color: white;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .attractions-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-md);
 }
 
 article {
-    padding: 1rem;
-    border-left: 4px solid #2b7abc;
+    padding: var(--spacing-sm);
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+article h3 {
+    margin-bottom: 0.5rem;
 }
 
 /* Footer */
 footer {
     background-color: #333;
-    color: white;
+    color: var(--white);
     text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
 }
 
 /* Pseudo-element emoticon for wider views */
@@ -117,26 +170,105 @@ footer {
     .weather h2::after {
         content: " 😎";
         font-size: 1.5rem;
+        margin-left: 0.5rem;
     }
     
     .weather-icon {
-        display: none; /* Keep hidden in wider views */
+        display: none;
     }
 }
 
 /* Mobile styles */
 @media (max-width: 767px) {
+    :root {
+        --spacing-md: 1.5rem;
+        --spacing-sm: 0.75rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
     .weather-icon {
         display: block;
-        margin-bottom: 1rem;
     }
     
     nav ul {
         flex-direction: column;
-        gap: 1rem;
+        gap: var(--spacing-sm);
     }
     
     main {
-        padding: 1rem;
+        padding: var(--spacing-sm);
+    }
+    
+    .attractions-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Large screen styles */
+@media (min-width: 1024px) {
+    :root {
+        --spacing-lg: 4rem;
+        --spacing-md: 2.5rem;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+            "hero hero"
+            "data weather"
+            "attractions attractions";
+        gap: var(--spacing-md);
+    }
+    
+    .hero {
+        grid-area: hero;
+    }
+    
+    .data {
+        grid-area: data;
+        margin: 0;
+    }
+    
+    .weather {
+        grid-area: weather;
+        margin: 0;
+    }
+    
+    .attractions {
+        grid-area: attractions;
+        margin: 0;
+    }
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    :root {
+        --primary-color: #000;
+        --text-color: #000;
+        --secondary-color: #fff;
+    }
+    
+    nav, .weather-icon {
+        display: none;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
     }
 }
