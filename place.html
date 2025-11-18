@@ -6,6 +6,13 @@
     <meta name="author" content="Laston James Sichali">
     <meta name="description" content="Explore Karonga, Malawi - a beautiful lakeside district in the Warm Heart of Africa">
     <title>Karonga, Malawi | The Warm Heart of Africa</title>
+    
+    <!-- Add more meta tags for SEO -->
+    <meta name="keywords" content="Karonga, Malawi, Africa, tourism, Lake Malawi, travel">
+    <meta property="og:title" content="Karonga, Malawi | The Warm Heart of Africa">
+    <meta property="og:description" content="Explore Karonga, Malawi - a beautiful lakeside district in the Warm Heart of Africa">
+    <meta property="og:type" content="website">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -15,22 +22,29 @@
 <body>
     <header>
         <h1>Karonga, Malawi</h1>
+        <nav>
+            <ul>
+                <li><a href="#data">Data</a></li>
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="#attractions">Attractions</a></li>
+            </ul>
+        </nav>
     </header>
     
     <main>
         <section class="hero">
             <picture>
-                <!-- Provide different image sizes for responsive design -->
-                <source media="(min-width: 768px)" srcset="images/karonga-malawi.webp 1x, images/karonga-malawi-large.webp 2x">
+                <!-- Improved responsive images with WebP format -->
+                <source media="(min-width: 1024px)" srcset="images/karonga-malawi.webp" type="image/webp">
+                <source media="(min-width: 768px)" srcset="images/karonga-malawi.webp" type="image/webp">
+                <source srcset="images/karonga-malawi.webp" type="image/webp">
                 <img src="images/karonga-malawi.webp" 
-                     srcset="images/karonga-malawi-small.webp 480w, images/karonga-malawi.webp 800w"
-                     sizes="(max-width: 600px) 480px, 800px"
                      alt="Scenic view of Karonga, Malawi with Lake Malawi in the background" 
                      width="800" height="400">
             </picture>
         </section>
         
-        <section class="data">
+        <section id="data" class="data">
             <h2>Karonga District Data</h2>
             <div class="data-content">
                 <p><strong>Population:</strong> Approximately 365,000</p>
@@ -41,11 +55,11 @@
             </div>
         </section>
         
-        <section class="weather">
+        <section id="weather" class="weather">
             <h2>Weather</h2>
             <div class="weather-content">
                 <div class="weather-icon">
-                    <!-- Inline SVG for weather icon -->
+                    <!-- SVG for weather icon - only show in mobile view -->
                     <svg width="50" height="50" viewBox="0 0 50 50" aria-labelledby="sun-icon-title">
                         <title id="sun-icon-title">Sunny Weather Icon</title>
                         <circle cx="25" cy="25" r="15" fill="#FFD700" stroke="#FF8C00" stroke-width="2"/>
@@ -65,6 +79,24 @@
                 <p><strong>Temperature:</strong> <span id="temperature">28</span>°C</p>
                 <p><strong>Wind Speed:</strong> <span id="wind-speed">5</span> km/h</p>
                 <p><strong>Wind Chill:</strong> <span id="wind-chill">N/A</span></p>
+            </div>
+        </section>
+        
+        <section id="attractions" class="attractions">
+            <h2>Top Attractions</h2>
+            <div class="attractions-content">
+                <article>
+                    <h3>Lake Malawi</h3>
+                    <p>One of Africa's Great Lakes, known for its crystal clear waters and diverse aquatic life.</p>
+                </article>
+                <article>
+                    <h3>Karonga Cultural Museum</h3>
+                    <p>Showcasing the rich history and culture of the northern region of Malawi.</p>
+                </article>
+                <article>
+                    <h3>Livingstonia Mission</h3>
+                    <p>A historic mission station with stunning views over the lake.</p>
+                </article>
             </div>
         </section>
     </main>

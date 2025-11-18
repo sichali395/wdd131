@@ -1,187 +1,142 @@
-/* CSS Variables */
-:root {
-    /* Color scheme based on Malawi flag colors */
-    --primary-color: #000000;    /* Black */
-    --secondary-color: #CE1126;  /* Red */
-    --accent-color: #339E35;     /* Green */
-    --text-color: #333333;
-    --background-color: #FFFFFF;
-    --card-background: #F5F5F5;
-    --border-color: #DDDDDD;
-    
-    /* Typography */
-    --heading-font: 'Merriweather', serif;
-    --body-font: 'Roboto', sans-serif;
-    
-    /* Spacing */
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-}
+/* styles/place.css */
 
-/* Base Styles */
+/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Typography */
 body {
-    font-family: var(--body-font);
-    color: var(--text-color);
-    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    margin-bottom: 1rem;
+}
+
+/* Header */
 header {
-    background-color: var(--primary-color);
+    background-color: #2b7abc;
     color: white;
+    padding: 1rem;
     text-align: center;
-    padding: var(--spacing-lg);
 }
 
-header h1 {
-    font-family: var(--heading-font);
-    font-size: 1.8rem;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-md);
+    padding: 2rem;
 }
 
-/* Hero Section */
-.hero {
-    margin-bottom: var(--spacing-lg);
-}
-
+/* Hero section */
 .hero img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Data Section */
+/* Data section */
 .data {
-    background-color: var(--card-background);
-    padding: var(--spacing-lg);
+    background-color: white;
+    padding: 2rem;
+    margin: 2rem 0;
     border-radius: 8px;
-    margin-bottom: var(--spacing-lg);
-    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.data h2 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.5rem;
-}
-
-.data-content p {
-    margin-bottom: var(--spacing-sm);
-}
-
-/* Weather Section */
+/* Weather section */
 .weather {
-    background-color: var(--card-background);
-    padding: var(--spacing-lg);
+    background-color: white;
+    padding: 2rem;
+    margin: 2rem 0;
     border-radius: 8px;
-    border-left: 4px solid var(--accent-color);
-}
-
-.weather h2 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.5rem;
-}
-
-.weather-content p {
-    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .weather-icon {
-    text-align: center;
-    margin-bottom: var(--spacing-md);
+    display: none; /* Hide by default - show only in mobile */
 }
 
-/* Weather SVG Styles */
-.weather-icon svg {
-    display: block;
-    margin: 0 auto;
+/* Attractions section */
+.attractions {
+    background-color: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.attractions-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+article {
+    padding: 1rem;
+    border-left: 4px solid #2b7abc;
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary-color);
+    background-color: #333;
     color: white;
     text-align: center;
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    padding: 2rem;
+    margin-top: 2rem;
 }
 
-footer p {
-    margin-bottom: var(--spacing-sm);
-}
-
-/* Mobile First Styles - Default layout is for mobile */
-
-/* Desktop Styles */
+/* Pseudo-element emoticon for wider views */
 @media (min-width: 768px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-    
-    main {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: auto auto;
-        gap: var(--spacing-lg);
-        padding: var(--spacing-lg);
-    }
-    
-    .hero {
-        grid-column: 1 / 3;
-        grid-row: 1;
-    }
-    
-    .data {
-        grid-column: 1;
-        grid-row: 2;
-        margin-bottom: 0;
-    }
-    
-    .weather {
-        grid-column: 2;
-        grid-row: 2;
-        margin-bottom: 0;
-    }
-    
-    /* Weather icon pseudo-element for desktop */
     .weather h2::after {
-        content: " ⛅";
-        font-size: 1.2rem;
+        content: " 😎";
+        font-size: 1.5rem;
     }
     
     .weather-icon {
-        display: none;
-    }
-    
-    .data h2, .weather h2 {
-        font-size: 1.8rem;
+        display: none; /* Keep hidden in wider views */
     }
 }
 
-/* Additional responsive adjustments */
-@media (min-width: 1024px) {
-    main {
-        padding: var(--spacing-xl);
+/* Mobile styles */
+@media (max-width: 767px) {
+    .weather-icon {
+        display: block;
+        margin-bottom: 1rem;
     }
     
-    .data, .weather {
-        padding: var(--spacing-xl);
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
     }
 }
