@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Load Images</title>
+    <link rel="stylesheet" href="styles/lazyload.css">
+</head>
+<body>
+    <main>
+        <h1>Lazy Load Image Gallery</h1>
+        <div class="image-container">
+            <img src="https://picsum.photos/400/600?random=1" alt="Random image 1" loading="lazy" width="400" height="600">
+            <img src="https://picsum.photos/400/600?random=2" alt="Random image 2" loading="lazy" width="400" height="600">
+            <img src="https://picsum.photos/400/600?random=3" alt="Random image 3" loading="lazy" width="400" height="600">
+            <img src="https://picsum.photos/400/600?random=4" alt="Random image 4" loading="lazy" width="400" height="600">
+            <img src="https://picsum.photos/400/600?random=5" alt="Random image 5" loading="lazy" width="400" height="600">
+            <img src="https://picsum.photos/400/600?random=6" alt="Random image 6" loading="lazy" width="400" height="600">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lazy Load Gallery. All rights reserved.</p>
+        <p>Last modified: <span id="lastModified"></span></p>
+    </footer>
+    <script src="scripts/lazyload.js"></script>
+</body>
+</html>
