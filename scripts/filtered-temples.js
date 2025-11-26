@@ -58,13 +58,6 @@ const temples = [
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-37762.jpg"
   },
   {
-    templeName: "Rome Italy",
-    location: "Rome, Italy",
-    dedicated: "2019, March, 10",
-    area: 41010,
-    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/400x225/rome-italy-temple-lds-1079992-wallpaper.jpg"
-  },
-  {
     templeName: "Cebu City Philippines",
     location: "Cebu City, Philippines",
     dedicated: "2010, June, 13",
@@ -100,6 +93,12 @@ function createTempleCard(temple) {
 // Function to display temples
 function displayTemples(templesArray) {
   templeGallery.innerHTML = '';
+  
+  if (templesArray.length === 0) {
+    templeGallery.innerHTML = '<p class="no-temples">No temples found matching the selected filter.</p>';
+    return;
+  }
+  
   templesArray.forEach(temple => {
     const card = createTempleCard(temple);
     templeGallery.appendChild(card);
@@ -138,6 +137,9 @@ function handleNavClick(e) {
   navLinks.forEach(link => link.classList.remove('active'));
   this.classList.add('active');
   
+  // Close mobile menu if open
+  nav.classList.remove('active');
+  
   // Filter temples based on selection
   switch(filter) {
     case 'old':
@@ -172,6 +174,13 @@ function init() {
   // Hamburger menu functionality
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove('active');
+    }
   });
   
   // Update footer information
