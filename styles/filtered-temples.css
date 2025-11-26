@@ -5,7 +5,7 @@
     --accent-color: #e74c3c;
     --light-color: #ecf0f1;
     --dark-color: #2c3e50;
-    --text-color: #333;
+    --text-color: #333333;
     --background-color: #f9f9f9;
 }
 
@@ -77,20 +77,17 @@ nav.active {
     text-decoration: none;
     padding: 0.75rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s, color 0.3s;
     display: block;
     width: 100%;
+    transition: background-color 0.3s ease;
 }
 
-.nav-menu a:hover,
-.nav-menu a:focus {
+.nav-menu a:hover {
     background-color: var(--secondary-color);
-    color: white;
 }
 
 .nav-menu a.active {
     background-color: var(--secondary-color);
-    color: white;
 }
 
 .hamburger {
@@ -101,7 +98,7 @@ nav.active {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.25rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .hamburger:hover {
@@ -133,12 +130,11 @@ main {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .temple-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .temple-img {
@@ -170,6 +166,14 @@ main {
     color: var(--primary-color);
 }
 
+.no-temples {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
 footer {
     background-color: var(--primary-color);
     color: var(--light-color);
@@ -183,7 +187,7 @@ footer p {
 }
 
 /* Media Queries */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .hamburger {
         display: none;
     }
@@ -197,7 +201,6 @@ footer p {
 
     .nav-menu {
         flex-direction: row;
-        gap: 0;
     }
 
     .nav-menu li {
@@ -210,7 +213,7 @@ footer p {
         padding: 0.5rem 1.5rem;
     }
 
-    .nav-menu a:last-child {
+    .nav-menu li:last-child a {
         border-right: none;
     }
 
@@ -223,7 +226,7 @@ footer p {
     }
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
     .gallery {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -237,7 +240,7 @@ footer p {
     }
 }
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }

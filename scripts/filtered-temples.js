@@ -68,7 +68,7 @@ const temples = [
 
 // DOM elements
 const templeGallery = document.getElementById('templeGallery');
-const navLinks = document.querySelectorAll('nav a');
+const navLinks = document.querySelectorAll('.nav-menu a');
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('nav');
 
@@ -138,27 +138,32 @@ function handleNavClick(e) {
   this.classList.add('active');
   
   // Close mobile menu if open
-  nav.classList.remove('active');
+  if (nav.classList.contains('active')) {
+    nav.classList.remove('active');
+  }
   
   // Filter temples based on selection
+  let filteredTemples = [];
   switch(filter) {
     case 'old':
-      displayTemples(filterOldTemples());
+      filteredTemples = filterOldTemples();
       break;
     case 'new':
-      displayTemples(filterNewTemples());
+      filteredTemples = filterNewTemples();
       break;
     case 'large':
-      displayTemples(filterLargeTemples());
+      filteredTemples = filterLargeTemples();
       break;
     case 'small':
-      displayTemples(filterSmallTemples());
+      filteredTemples = filterSmallTemples();
       break;
     case 'home':
     default:
-      displayTemples(temples);
+      filteredTemples = temples;
       break;
   }
+  
+  displayTemples(filteredTemples);
 }
 
 // Initialize the page
@@ -184,9 +189,14 @@ function init() {
   });
   
   // Update footer information
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
+  document.getElementById('currentYear').textContent = currentYear;
   document.getElementById('lastModified').textContent = document.lastModified;
 }
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
