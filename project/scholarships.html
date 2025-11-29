@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scholarship Opportunities - Ighembe Education Zone - Funding for students in 15 primary schools">
+    <meta name="author" content="Laston James Sichali">
+    <title>Scholarships - Ighembe Education Zone</title>
+    <link rel="stylesheet" href="styles/ighembe.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ighembe Education Zone</h1>
+                <p class="zone-leadership">Primary Education Advisor: Wezzie Moyo | ACC Officer: Laston James Sichali</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html">Schools & Resources</a></li>
+                    <li><a href="scholarships.html" class="active">Scholarships</a></li>
+                    <li><a href="references.html">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Scholarship Opportunities</h1>
+                <p>Discover funding opportunities for students across our 15 primary schools in Ighembe Zone</p>
+                <p class="currency-note"><strong>All amounts shown in Malawian Kwacha (MWK)</strong></p>
+            </div>
+        </section>
+
+        <section class="scholarship-intro">
+            <div class="container">
+                <h2>Funding Your Education</h2>
+                <p>We connect students from Changwina, Chikutu, Chisi, Ighembe, Kafulu, Kakolya, Kaporo, Kasantha, Kaundi, Kibwe, Lutengano, Ndemange, Ndindo, Ngaramu, and Sherasongwe primary schools with scholarship opportunities from local organizations, government programs, and private donors.</p>
+            </div>
+        </section>
+
+        <section class="scholarship-calculator">
+            <div class="container">
+                <h2>Scholarship Eligibility Calculator</h2>
+                <p>Check which scholarships you might qualify for based on your current situation</p>
+                <form id="eligibilityForm" class="calculator-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school">Your School</label>
+                            <select id="school" name="school" required aria-required="true">
+                                <option value="">Select your school</option>
+                                <option value="changwina">Changwina Primary School</option>
+                                <option value="chikutu">Chikutu Primary School</option>
+                                <option value="chisi">Chisi Primary School</option>
+                                <option value="ighembe">Ighembe Primary School</option>
+                                <option value="kafulu">Kafulu Primary School</option>
+                                <option value="kakolya">Kakolya Primary School</option>
+                                <option value="kaporo">Kaporo Primary School</option>
+                                <option value="kasantha">Kasantha Primary School</option>
+                                <option value="kaundi">Kaundi Primary School</option>
+                                <option value="kibwe">Kibwe Primary School</option>
+                                <option value="lutengano">Lutengano Primary School</option>
+                                <option value="ndemange">Ndemange Primary School</option>
+                                <option value="ndindo">Ndindo Primary School</option>
+                                <option value="ngaramu">Ngaramu Primary School</option>
+                                <option value="sherasongwe">Sherasongwe Primary School</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gradeLevel">Current Grade Level</label>
+                            <select id="gradeLevel" name="gradeLevel" required aria-required="true">
+                                <option value="">Select grade level</option>
+                                <option value="std1">Standard 1</option>
+                                <option value="std2">Standard 2</option>
+                                <option value="std3">Standard 3</option>
+                                <option value="std4">Standard 4</option>
+                                <option value="std5">Standard 5</option>
+                                <option value="std6">Standard 6</option>
+                                <option value="std7">Standard 7</option>
+                                <option value="std8">Standard 8</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="performance">Academic Performance</label>
+                            <select id="performance" name="performance" required aria-required="true">
+                                <option value="">Select performance level</option>
+                                <option value="excellent">Excellent (Top 10%)</option>
+                                <option value="very-good">Very Good (Top 25%)</option>
+                                <option value="good">Good (Above Average)</option>
+                                <option value="average">Average</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="financialNeed">Financial Need</label>
+                            <select id="financialNeed" name="financialNeed" required aria-required="true">
+                                <option value="">Select level</option>
+                                <option value="high">High Need</option>
+                                <option value="medium">Medium Need</option>
+                                <option value="low">Low Need</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Check Eligibility</button>
+                </form>
+                <div id="calculatorResults" class="calculator-results"></div>
+            </div>
+        </section>
+
+        <section class="scholarship-listings">
+            <div class="container">
+                <h2>Available Scholarships</h2>
+                <p>Opportunities available for students in Ighembe Zone primary schools</p>
+                <div class="scholarship-filters">
+                    <button type="button" class="filter-btn active" data-type="all">All Scholarships</button>
+                    <button type="button" class="filter-btn" data-type="merit">Merit-based</button>
+                    <button type="button" class="filter-btn" data-type="need">Need-based</button>
+                    <button type="button" class="filter-btn" data-type="local">Local Opportunities</button>
+                    <button type="button" class="filter-btn" data-type="loan">Loan Scholarships</button>
+                </div>
+                <div class="scholarships-container" id="scholarshipsContainer">
+                    <!-- Scholarships loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="application-tracker">
+            <div class="container">
+                <h2>Scholarship Application Tracker</h2>
+                <p>Keep track of your scholarship applications</p>
+                <div class="tracker-container">
+                    <form id="applicationForm" class="tracker-form">
+                        <div class="form-group">
+                            <label for="scholarshipName">Scholarship Name</label>
+                            <input type="text" id="scholarshipName" name="scholarshipName" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolName">Your School</label>
+                            <select id="schoolName" name="schoolName" required aria-required="true">
+                                <option value="">Select your school</option>
+                                <option value="changwina">Changwina Primary School</option>
+                                <option value="chikutu">Chikutu Primary School</option>
+                                <option value="chisi">Chisi Primary School</option>
+                                <option value="ighembe">Ighembe Primary School</option>
+                                <option value="kafulu">Kafulu Primary School</option>
+                                <option value="kakolya">Kakolya Primary School</option>
+                                <option value="kaporo">Kaporo Primary School</option>
+                                <option value="kasantha">Kasantha Primary School</option>
+                                <option value="kaundi">Kaundi Primary School</option>
+                                <option value="kibwe">Kibwe Primary School</option>
+                                <option value="lutengano">Lutengano Primary School</option>
+                                <option value="ndemange">Ndemange Primary School</option>
+                                <option value="ndindo">Ndindo Primary School</option>
+                                <option value="ngaramu">Ngaramu Primary School</option>
+                                <option value="sherasongwe">Sherasongwe Primary School</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">Application Deadline</label>
+                            <input type="date" id="deadline" name="deadline" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Application Status</label>
+                            <select id="status" name="status" required aria-required="true">
+                                <option value="planning">Planning to Apply</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="submitted">Submitted</option>
+                                <option value="awarded">Awarded</option>
+                                <option value="rejected">Not Awarded</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Add to Tracker</button>
+                    </form>
+                    <div class="tracker-list" id="trackerList">
+                        <!-- Applications loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ighembe Education Zone</h3>
+                    <p>Empowering education across 15 primary schools</p>
+                    <p><strong>Leadership:</strong><br>
+                    Wezzie Moyo - PEA<br>
+                    Laston James Sichali - ACCO</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Schools & Resources</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@ighembe-education.org</p>
+                    <p>Phone: (255) 123-4567</p>
+                    <p class="author">Website by: Laston James Sichali</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ighembe Education Zone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/ighembe.js"></script>
+</body>
+</html>

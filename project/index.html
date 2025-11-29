@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ighembe Education Zone - Empowering education across 15 primary schools in the Zone">
+    <meta name="author" content="Laston James Sichali">
+    <title>Ighembe Education Zone - Home</title>
+    <link rel="stylesheet" href="styles/ighembe.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ighembe Education Zone</h1>
+                <p class="zone-leadership">Primary Education Advisor: Wezzie Moyo | ACCO: Laston James Sichali</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="resources.html">Schools & Resources</a></li>
+                    <li><a href="scholarships.html">Scholarships</a></li>
+                    <li><a href="references.html">References</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Empowering Education in Karonga District</h2>
+                    <p>Serving 15 Primary Schools in the Zone</p>
+                    <button class="cta-button" id="exploreResources">Explore Our Schools</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="welcome">
+            <div class="container">
+                <h2>Welcome to Ighembe Education Zone</h2>
+                <p>Under the leadership of Primary Education Advisor <strong>Wezzie Moyo</strong> and Assistant Centre Coordinator <strong>Laston James Sichali</strong>, we are dedicated to improving educational outcomes across our 15 primary schools in the Zone.</p>
+                
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <h3>15 Primary Schools</h3>
+                        <p>Comprehensive support for Changwina, Chikutu, Chisi, Ighembe, Kafulu, Kakolya, Kaporo, Kasantha, Kaundi, Kibwe, Lutengano, Ndemange, Ndindo, Ngaramu, and Sherasongwe</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Learning Resources</h3>
+                        <p>Access to educational materials and tools for all grade levels across our schools</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Community Support</h3>
+                        <p>Connecting parents, teachers, and community leaders to support education</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <div class="container">
+                <h2>Quick Access</h2>
+                <div class="links-grid">
+                    <a href="resources.html" class="link-card">
+                        <h3>School Directory</h3>
+                        <p>Information about all 15 primary schools</p>
+                    </a>
+                    <a href="resources.html#resources" class="link-card">
+                        <h3>Educational Resources</h3>
+                        <p>Teaching and learning materials</p>
+                    </a>
+                    <a href="scholarships.html" class="link-card">
+                        <h3>Scholarships</h3>
+                        <p>Funding opportunities for students</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="leadership">
+            <div class="container">
+                <h2>Zone Leadership</h2>
+                <div class="leadership-grid">
+                    <article class="leader-card">
+                        <h3>Wezzie Moyo</h3>
+                        <p class="position">Primary Education Advisor (PEA)</p>
+                        <p>Leading educational initiatives and teacher support across the Zone</p>
+                    </article>
+                    <article class="leader-card">
+                        <h3>Laston James Sichali</h3>
+                        <p class="position">Assistant Centre Coordinator (ACCO)</p>
+                        <p>Coordinating resources and community engagement for all 15 primary schools</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-updates">
+            <div class="container">
+                <h2>Latest News & Updates</h2>
+                <div class="news-container" id="newsContainer">
+                    <!-- News items loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <div class="container">
+                <h2>Stay Connected</h2>
+                <p>Subscribe to our newsletter for updates on educational opportunities in Ighembe Zone</p>
+                <form id="newsletterForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">I am a:</label>
+                        <select id="role" name="role" required aria-required="true">
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="parent">Parent</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="headteacher">Headteacher</option>
+                            <option value="community">Community Member</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="updates" name="updates" required aria-required="true">
+                        <label for="updates">I agree to receive educational updates and resources</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ighembe Education Zone</h3>
+                    <p>Empowering education across 15 primary schools</p>
+                    <p><strong>Leadership:</strong><br>
+                    Wezzie Moyo - PEA<br>
+                    Laston James Sichali - ACCO</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Schools & Resources</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@ighembe-education.org</p>
+                    <p>Phone: (265) 995 195 509</p>
+                    <p class="author">Website by: Laston James Sichali</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ighembe Education Zone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/ighembe.js"></script>
+</body>
+</html>

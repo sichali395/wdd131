@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schools & Educational Resources - Ighembe Education Zone - Information about 15 primary schools">
+    <meta name="author" content="Laston James Sichali">
+    <title>Schools & Resources - Ighembe Education Zone</title>
+    <link rel="stylesheet" href="styles/ighembe.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ighembe Education Zone</h1>
+                <p class="zone-leadership">Primary Education Advisor: Wezzie Moyo | ACCO: Laston James Sichali</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resources.html" class="active">Schools & Resources</a></li>
+                    <li><a href="scholarships.html">Scholarships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Schools & Educational Resources</h1>
+                <p>Comprehensive information about our 15 primary schools and educational materials for the Ighembe Zone Community</p>
+            </div>
+        </section>
+
+        <section class="school-directory">
+            <div class="container">
+                <h2>Ighembe Zone Primary Schools</h2>
+                <p class="schools-count">15 Primary Schools Serving Our Community</p>
+                
+                <div class="schools-grid" id="schoolsGrid">
+                    <!-- Schools loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="resource-categories">
+            <div class="container">
+                <h2>Educational Resources</h2>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All Resources</button>
+                    <button class="filter-btn" data-category="students">For Students</button>
+                    <button class="filter-btn" data-category="teachers">For Teachers</button>
+                    <button class="filter-btn" data-category="headteachers">For Headteachers</button>
+                    <button class="filter-btn" data-category="parents">For Parents</button>
+                </div>
+
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- Resources loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-search">
+            <div class="container">
+                <h2>Search Resources</h2>
+                <div class="search-box">
+                    <input type="text" id="resourceSearch" placeholder="Search for resources...">
+                    <button type="button" id="searchBtn">Search</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </section>
+
+        <section class="zone-statistics">
+            <div class="container">
+                <h2>Zone Statistics</h2>
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <h3>15</h3>
+                        <p>Primary Schools</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>5,200+</h3>
+                        <p>Students Served</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>150+</h3>
+                        <p>Teachers</p>
+                    </article>
+                    <article class="stat-card">
+                        <h3>15</h3>
+                        <p>Headteachers</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ighembe Education Zone</h3>
+                    <p>Empowering education across 15 primary schools</p>
+                    <p><strong>Leadership:</strong><br>
+                    Wezzie Moyo - PEA<br>
+                    Laston James Sichali - ACCO</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Schools & Resources</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@ighembe-education.org</p>
+                    <p>Phone: (265) 995 195 509</p>
+                    <p class="author">Website by: Laston James Sichali</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ighembe Education Zone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/ighembe.js"></script>
+</body>
+</html>
