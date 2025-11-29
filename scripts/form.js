@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const formattedDate = today.toISOString().split('T')[0];
     const installationDateInput = document.getElementById('installationDate');
     installationDateInput.value = formattedDate;
-    installationDateInput.max = formattedDate; // Prevent future dates
+    installationDateInput.max = formattedDate;
     
-    // Enhanced form validation
+    // Form validation
     const form = document.getElementById('reviewForm');
     form.addEventListener('submit', function(event) {
         let isValid = true;
@@ -97,86 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const errorMessage = errorMessages.join('\n• ');
             alert('Please correct the following errors:\n\n• ' + errorMessage);
-        } else {
-            // Form is valid, allow submission
-            console.log('Form submitted successfully');
         }
     });
-    
-    // Real-time validation
-    const formElements = form.querySelectorAll('input, select, textarea');
-    formElements.forEach(element => {
-        element.addEventListener('blur', function() {
-            validateField(this);
-        });
-        
-        element.addEventListener('input', function() {
-            if (this.classList.contains('error')) {
-                validateField(this);
-            }
-        });
-    });
-    
-    function validateField(field) {
-        switch(field.type) {
-            case 'select-one':
-                if (field.required && !field.value) {
-                    highlightError(field);
-                } else {
-                    removeHighlight(field);
-                }
-                break;
-            case 'radio':
-                // For radio groups, check if any in the group is selected
-                const radioGroup = document.querySelectorAll(`input[name="${field.name}"]`);
-                const anySelected = Array.from(radioGroup).some(radio => radio.checked);
-                const ratingContainer = document.querySelector('.rating-container');
-                if (!anySelected && field.required) {
-                    highlightError(ratingContainer);
-                } else {
-                    removeHighlight(ratingContainer);
-                }
-                break;
-            case 'date':
-                if (field.required && !field.value) {
-                    highlightError(field);
-                } else if (field.value && new Date(field.value) > new Date()) {
-                    highlightError(field);
-                } else {
-                    removeHighlight(field);
-                }
-                break;
-            default:
-                if (field.required && !field.value.trim()) {
-                    highlightError(field);
-                } else {
-                    removeHighlight(field);
-                }
-        }
-    }
     
     function highlightError(element) {
         element.classList.add('error');
-        element.style.borderColor = '#c0392b';
-        element.style.boxShadow = '0 0 0 3px rgba(192, 57, 43, 0.1)';
     }
     
     function removeHighlight(element) {
         element.classList.remove('error');
-        element.style.borderColor = '';
-        element.style.boxShadow = '';
     }
-    
-    // Add loading state for better UX
-    form.addEventListener('submit', function() {
-        const submitBtn = this.querySelector('.submit-btn');
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Review';
-            }, 3000);
-        }
-    });
 });
