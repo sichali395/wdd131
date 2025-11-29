@@ -1,4 +1,4 @@
-/* Color Schema */
+/* Color Schema - Applied to document as required */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
@@ -9,7 +9,7 @@
     --border-color: #bdc3c7;
 }
 
-/* Typography */
+/* Typography - Applied to document as required */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -51,6 +51,7 @@ header {
 
 .project-info {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
 }
